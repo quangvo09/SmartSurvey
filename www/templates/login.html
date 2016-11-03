@@ -1,0 +1,50 @@
+<!-- <ion-view view-title="Sign-In" name="login">
+<ion-content>
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label">Username</span>
+    <input type="text" ng-model="user.username">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password" ng-model="user.password">
+  </label>
+
+  <label ng-show="truePassword">Sorry wrong password</label>
+</div>
+<div class="padding">
+  <button class="button button-block button-positive" ng-click="signIn(user)">
+    Sign-In
+  </button>
+  <p class="text-center">
+    <a href="#/forgot-password">Forgot password</a>
+  </p>
+</div>
+</ion-content>
+</ion-view>
+ -->
+<ion-view view-title="Login" hide-nav-bar="true"  align-title="left">
+    <ion-content style="background: url(img/login.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h1>Mobi Survey</h1>
+            </div>
+        </div>
+        <div class="list">
+          <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text" ng-model="user.username" ng-class="user.username? 'used':''"><span class="input-label">Username</span><div class="highlight highlight-balanced"></div></label>
+
+          <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password"><input type="password" ng-model="user.password" ng-class="user.password? 'used':''"><span class="input-label">Password</span><div class="highlight highlight-energized"></div></label>
+        </div>
+        <div class="padding">
+              <button class="button button-full button-assertive" ng-click="signIn(user)">Login</button>
+                <a href="#/signup"style="margin-left:30%;margin-right:10%">Create a new account</a>
+
+        </div>
+        <div class="button-bar social-login">
+            <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+</button>
+            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter</button>
+            <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">Facebook</button>
+        </div>
+    </ion-content>
+</ion-view>

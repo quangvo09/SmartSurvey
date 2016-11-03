@@ -1,0 +1,80 @@
+<ion-view view-title="News feed">
+<ion-content class="padding" >
+<!--           <div class="item card-item" ng-repeat="feed in feeds">
+            <div class="card stable-bg ink ink-dark">
+                <div class="item item-avatar">
+                    <span class="avatar" style="background-image: url('img/no-avatar.png');"></span>
+                    <strong>Nguyễn Văn A</strong>
+                                <div class="item item-body">
+                <h1 style="font-size:18px;">{{feed.title}}</h1>
+                <p>{{feed.description}}</p>
+</div>
+                    <div class="card-footer text-right">
+                        <i class="icon ion-chatbubbles positive"></i> 6
+                        <i class="icon ion-heart assertive"></i> 23
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> {{getTimeString(feed.createdAt)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->        
+<!-- 
+        <div ng-click="navigateToSurveyDescription(feed.referencingSurveyId, feed.id)" class="item card" ng-repeat="feed in feeds">
+      <div class="item item-avatar" style="padding-top:16px; padding-bottom:0px; min-height:60px;">
+        <img ng-src="{{getImageUrl(feed.user.avatar)}}">
+        <h2 style="font-weight:bold;">{{feed.user.firstName}} {{feed.user.lastName}}</h2>
+        <p style="color:#9197a3;font-size:11px;"><i class="icon ion-clock"></i> {{getTimeString(feed.createdAt)}}</p>
+      </div>
+      <div class="item item-body" style="padding-top:0px; padding-left:16px;">
+        <h2 style="font-size:18px;font-weight:bold;">{{feed.title}}</h2>
+        {{feed.description}}
+      </div>
+      <div class="card-footer text-right">
+        <i class="icon ion-chatbubbles positive"></i> 6
+        <i class="icon ion-heart assertive"></i> 23
+      </div>
+    </div>
+ --><!--     <div ng-click="navigateToSurveyDescription(feed.referencingSurveyId)" style="background:#f6f8f9;" ng-repeat="feed in feeds" class="list card">
+      <div class="item item-avatar">
+        <img src="img/no-avatar.png"/>
+        <h2>Nguyễn Văn A</h2>
+        <p style="color:#9197a3;font-size:11px;">{{getTimeString(feed.createdAt)}}</p>
+      </div>
+      <div class="item item-body">
+        <h1 style="font-size:18px;">{{feed.title}}</h1>
+        <p>{{feed.description}}</p>
+        <p>
+          <a href="#" class="subdued">100 Likes</a>
+          <a href="#" class="subdued">15 Comments</a>
+        </p>
+      </div>
+    </div>
+ -->
+
+ <ion-list>
+ <ion-item  class="item card" ng-repeat="feed in feeds">
+       <div ng-click="navigateToProfile(feed.posterId)" class="item item-avatar" style="padding-top:16px; padding-bottom:0px; min-height:60px;">
+        <img ng-src="{{getImageUrl(feed.user.avatar)}}">
+        <h2 style="font-weight:bold;">{{feed.user.firstName}} {{feed.user.lastName}}</h2>
+        <p style="color:#9197a3;font-size:11px;"><i class="icon ion-clock"></i> {{getTimeString(feed.createdAt)}}</p>
+      </div>
+      <div ng-click="navigateToSurveyDescription(feed.referencingSurveyId, feed.id, feed.liked)" class="item item-body" style="padding-top:0px; padding-left:16px;">
+        <h2 style="font-size:18px;font-weight:bold;">{{feed.title}}</h2>
+        {{feed.description}}
+      </div>
+      <div class="card-footer text-right">
+        <i class="icon ion-chatbubbles positive"></i> {{feed.commentCount}}
+        <i class="icon ion-heart assertive"></i> {{feed.postLikeCount}}
+      </div>
+      <div>
+      </div>
+ </ion-item>
+ </ion-list>
+    <ion-infinite-scroll
+    on-infinite="loadMore()"
+    distance="1%">
+  </ion-infinite-scroll>
+</ion-content>
+</ion-view>

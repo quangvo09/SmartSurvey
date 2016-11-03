@@ -1,0 +1,26 @@
+<ion-view view-title="Profile">
+    <ion-content >
+        <div class="hero" style="background-image: url('img/login.jpg');">
+            <div  style="bottom:inherit" class="content">
+                <div class="avatar" ng-style="{'background-image':'url('+user.avatar+')'}"></div>
+                <h2 style="margin-top:0px;margin-bottom:0px;">{{user.firstName}} {{user.lastName}}</h2>
+                <div ng-repeat="a in array">
+                <ionic-ratings ratingsobj='a' style="font-size:30px;"></ionic-ratings>
+                </div>
+                <h4 style="color:black;">{{getRounded(averageRating)}}/5</h4>
+            </div>
+        </div>
+
+          <div class="item item-divider">
+            Ratings
+          </div>
+        <ion-list class="list">
+            <ion-item class="item item-avatar" ng-repeat="rating in ratings">
+                <img ng-src="{{getImageUrl(rating.rater.avatar)}}">
+                <ionic-ratings ratingsobj='rating.ratingObject' style="text-align: left;font-size:20px;"></ionic-ratings>
+                <h2>{{rating.rater.firstName}} {{rating.rater.lastName}}</h2>
+                <p>{{rating.comment}}</p>
+            </ion-item>
+        </ioni-list>
+    </ion-content>
+</ion-view>

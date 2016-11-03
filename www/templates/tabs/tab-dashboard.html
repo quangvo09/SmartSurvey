@@ -1,0 +1,67 @@
+<ion-view view-title="Dashboard">
+  <ion-content>
+	<div class="list">
+
+	  <div class="item item-thumbnail-left">
+            <img ng-src="{{getImageUrl(user.avatar)}}" width="30" height="30">
+            <h2>{{user.firstName}} {{user.lastName}}</h2>
+            <div ng-repeat="a in array">
+            <ionic-ratings ratingsobj='a' style="font-size:30px;text-align:left;"></ionic-ratings>
+            </div>
+      </div>
+  	  <div class="item item-divider">
+      	Bacsic Information
+      </div>
+
+	  <a class="item item-icon-left" href="">
+	    <i class="icon ion-location positive"></i>
+	    Location
+	    <span class="badge badge-positive">
+	    	Ho Chi Minh City
+	    </span>
+	  </a>
+
+<!-- 	  <a class="item item-icon-left" href="#">
+	    <i class="icon ion-ios-paper-outline positive"></i>
+	    Survey submissions
+	    <span class="badge badge-balanced">
+	    	20
+	    </span>
+	  </a>
+	  <a class="item item-icon-left" href="#">
+	    <i class="icon ion-ios-list-outline positive"></i>
+	    On-going surveys
+	    <span class="badge badge-balanced">
+	    	5
+	    </span>
+	  </a>
+
+	  <a class="item item-icon-left" href="#">
+	    <i class="icon ion-ios-photos-outline positive"></i>
+	    Completed surveys
+	    <span class="badge badge-balanced">
+	      10
+	    </span>
+	  </a>
+ -->
+	  <a class="item item-icon-left" href="">
+	    <i class="icon ion-star positive"></i>
+	    Points
+	    <span class="badge badge-positive">{{user.point ? user.point: 0}}</span>
+	  </a>
+	  <div class="item item-divider">
+      	Ratings
+      </div>
+
+        <ion-list class="list">
+            <ion-item class="item item-avatar" ng-repeat="rating in ratings">
+                <img ng-src="{{getImageUrl(rating.rater.avatar)}}">
+                <ionic-ratings ratingsobj='rating.ratingObject' style="text-align: left;font-size:20px;"></ionic-ratings>
+                <h2>{{rating.rater.firstName}} {{rating.rater.lastName}}</h2>
+                <p>{{rating.comment}}</p>
+            </ion-item>
+        </ioni-list>
+
+	</div>
+  </ion-content>
+</ion-view>

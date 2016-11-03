@@ -1,0 +1,12 @@
+<ion-view view-title="Completed Surveys">
+  <ion-content>
+      <ion-list>
+	      <ion-item class="item-remove-animate item-icon-left item-icon-right" ng-repeat="survey in surveys" type="item-text-wrap">
+	        <i class="icon ion-clipboard positive"></i>
+	        <h2><strong>{{survey.name}}</strong></h2>
+	        <p>Completed on: 16/06/2016</p>
+	        <i class="icon positive">{{(survey.responseCount*survey.paymentRate)?(survey.responseCount*survey.paymentRate):('')}}{{survey.paymentUnit}}</i>
+	      </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

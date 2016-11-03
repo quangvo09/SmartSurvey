@@ -1,0 +1,45 @@
+<ion-view view-title="Survey Info">
+  <ion-content>
+   <div class="card">
+     	<div class="item item-text-wrap">
+        <h2 style="font-size:18px;font-weight:bold;">{{survey.name}}</h2>
+  		</div>
+
+  		<div class="item item-text-wrap">
+			{{survey.description}}
+  		</div>
+  		 <div class="item item-text-wrap">
+			Deadline: {{getDeadline(survey.deadline)}}
+  		</div>
+  		<div class="item item-text-wrap" ng-click="viewResponse(survey.id)">
+  		Responses: {{survey.responsesCount}}/{{survey.submissionPerPerson}}
+  		</div>
+	</div>
+	<div class="card">
+
+
+  <button class="item item-icon-left button button-medium button-positive" ng-click="submitResponse()">
+    <i class="icon ion-edit"></i>
+    Submit new response
+  </button>
+  </div>
+<!--   <div ng-if="!rated && survey.responsesCount">
+          <h4 class="content padding double-padding-x">Rate this survey</h4>
+          <ionic-ratings ratingsobj='ratingsObject' style="font-size:30px;"></ionic-ratings>
+          <label style="padding-top:0px;"class="item-input item-floating-label">
+                    <input type="text" ng-model="data.comment" placeholder="Optional comment">
+                </label>
+                  <div class="card">
+
+
+  <button class="item item-icon-left button button-medium button-positive" ng-click="submitRating()">
+    Submit your rating
+  </button>
+  </div>
+  </div>
+ -->  </ion-content>
+<!--   <ion-footer-bar>
+    <button class="button button-full button-positive">Complete</button>
+	</ion-footer-bar>
+ -->
+</ion-view>

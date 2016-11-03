@@ -1,0 +1,70 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view cache-view="false" view-title="{{survey.name}}">
+<ion-content class="padding">
+<progress max="100" value="{{progress}}"></progress>
+<h2 style="font-size:20px;"><strong>{{question}}<strong><span ng-if="required" style="color:red;">*</span></h2>
+<div style="color:red;" ng-if="requiredMessage">This question must be answered before moving to next questions</div>
+<div ng-if="type==SURVEY_FIELD_TYPE.CheckBox">
+  <ion-checkbox ng-repeat="option in options" ng-value="option.id" ng-model="option.checked">{{option.description}}</ion-checkbox>
+</div>
+<div ng-if="type==SURVEY_FIELD_TYPE.MultipleChoice">
+  <ion-radio ng-repeat="option in options" ng-value="option.id" ng-model="data.selected">{{option.description}}</ion-radio>
+</div>
+<div ng-if="type==SURVEY_FIELD_TYPE.Text">
+  <label class="item item-input">
+    <input type="text" placeholder="Answer here" ng-model="data.text">
+  </label>
+</div>
+<div ng-if="type==SURVEY_FIELD_TYPE.Paragraph">
+  <label class="item item-input">
+    <input type="text" placeholder="Answer here" ng-model="data.text">
+
+  </div>
+  <div ng-if="type==SURVEY_FIELD_TYPE.Dropdown">
+    <select class="button button-block button-positive" ng-options="option.id as option.description for option in options" ng-model="data.selected"></select>
+  </div>
+
+  <div ng-if="type==SURVEY_FIELD_TYPE.Picture" class="">
+  <div>
+    <button class="button icon-left ion-camera" ng-click="getPhoto()">Take photo</button>
+  </div>
+  <div style="margin-top:5px;">  <img ng-src= "{{image}}" style="height:60%;width:60%;" align="middle">
+  </div>
+  </div>
+
+  <div ng-if="type==SURVEY_FIELD_TYPE.Gps">
+    <div class="mapWrap"  data-tap-disabled="true">
+      <map style="height:30%;width:100%;" zoom="15"> 
+        <marker ng-repeat=" pos in positions" position="{{pos.lat}},{{pos.long}}"></marker>
+      </map> 
+    </div>
+    <button class="button button-icon ion-navigate" ng-click="centerOnMe()">Find Me</button>
+  </div>
+  <div ng-if="type==SURVEY_FIELD_TYPE.Scale" class="">
+    <p style="width:100%; text-align:center">{{getTextFromRangeValue(data.selected)}}</p>
+    <div class="range range-positive">
+    <input type="range" min="0" max="10" ng-model="data.selected">
+    </div>
+    <span class="text-left">Strongly disagree</span>
+    <span style="float:right;" class="text-right">Strongly agree</span>
+  </div>
+
+  <div class="row" style="padding:0px;">
+    <div class="col">
+      <button class="button button-block button-positive" ng-click="backQuestion()">Previous</a>
+    </div>
+    <div class="col">
+      <button class="button button-block button-positive" ng-click="nextQuestion()">Next</a>
+<!--       <button ng-if="number == fieldCount" class="button button-block button-positive" ng-click="finish()">Finish</a>
+ -->    </div>
+  </div>
+
+
+</ion-content>
+
+</ion-view>

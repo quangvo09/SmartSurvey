@@ -1,0 +1,13 @@
+
+<ion-view view-title="Responses">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-left" ng-repeat="response in responses" type="item-text-wrap" href="#/tab/responses{{tab}}/{{surveyId}}/{{response.id}}">
+        <i class="icon ion-clipboard positive"></i>
+        <h2><strong>Response {{response.id}}</strong></h2>
+        <p>Submitted on: 07/04/2016</p>
+        <p>Status: {{response.status}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

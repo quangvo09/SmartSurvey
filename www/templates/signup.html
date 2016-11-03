@@ -1,0 +1,25 @@
+<ion-view  hide-nav-bar="true"  align-title="left">
+    <ion-content style="background: url(img/login.jpg) center; background-size: cover;">
+        <div class="list">
+          <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text" ng-model="user.username" ng-class="user.username? 'used':''"><span class="input-label">Username</span><div class="highlight highlight-balanced"></div></label>
+
+          <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password"><input type="password" ng-model="user.password" ng-class="user.password? 'used':''"><span class="input-label">Password</span><div class="highlight highlight-energized"></div></label>
+                    <label class="item item-input item-md-label" placeholder="Password" highlight-color="energized" type="password"><input type="password" ng-model="user.confirmedPassword" ng-class="user.confirmedPassword? 'used':''"><span class="input-label">Retype Password</span><div class="highlight highlight-energized"></div></label>
+          <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text" ng-model="user.firstName" ng-class="user.firstName? 'used':''"><span class="input-label">First Name</span><div class="highlight highlight-balanced"></div></label>
+          <label class="item item-input item-md-label" placeholder="Username" highlight-color="balanced" type="text"><input type="text" ng-model="user.lastName" ng-class="user.lastName? 'used':''"><span class="input-label">Last Name</span><div class="highlight highlight-balanced"></div></label>
+
+
+
+        </div>
+        <div class="padding">
+              <button class="button button-full button-assertive" ng-click="signUp(user)">Create a new account</button>
+                <a href="#/login" style="margin-left:30%;margin-right:10%">Already have a account</a>
+        </div>
+        <div class="button-bar social-login">
+            <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+</button>
+            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter</button>
+            <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">Facebook</button>
+        </div>
+
+    </ion-content>
+</ion-view>

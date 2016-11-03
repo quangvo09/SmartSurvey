@@ -1,0 +1,11 @@
+<ion-view view-title="Survey Info">
+<ion-content>
+<div class="list">
+<div class="item" ng-repeat="field in fields">
+  <h2 ng-bind="field.description"></h2>
+  <p ng-if="field.type!=='picture'" ng-bind="field.answer"></p>
+  <image ng-if="field.type=='picture'" ng-src="{{field.answer}}">
+</div>
+</div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,81 @@
+<ion-view  view-title="{{survey.name}}">
+<ion-content>
+<div class="hero" style="background-image: url('img/login.jpg');">
+  <div class="content">
+<!--                 <div class="avatar" style="background-image: url('img/daenerys.jpg');"></div>
+-->                <h3><a class="light" ng-bind="survey.name"></a></h3>
+<a href="#/tab/profile/{{user.id}}"><h4>by {{user.firstName}} {{user.lastName}}</h4></a>
+</div>
+</div>
+<!--         <div class="tabs tabs-dark tabs-icon-top static">
+            <a class="tab-item" ng-class="isSelected2" ng-click="isSelected2='positive';isSelected1=''">
+                <i class="icon ion-chatbox"></i> Comments
+            </a>
+            <a class="tab-item" ng-class="isSelected1" ng-click="isSelected1='positive';isSelected2=''">
+                <i class="icon ion-information"></i> Description
+            </a>
+        </div>
+      -->
+      <div class="tabs tabs-dark tabs-icon-top static">
+        <a  class="tab-item positive-color" ng-if="isLiked == 0" ng-click="postLike(postId)">
+          <i class="icon ion-thumbsup"></i> Like
+        </a>
+
+        <a  class="tab-item" ng-if="isLiked == 1" ng-click="postUnlike(postId)">
+          <i class="icon ion-thumbsup positive"></i> Liked
+        </a>
+
+        <a ng-if="permission.status == 'unactive' && survey.status =='active'" class="tab-item" ng-click="requestPermission(survey.id)">
+          <i class="icon ion-ios-plus positive"></i> Request to submit
+        </a>
+        <a ng-if="permission.status =='needApproval' && survey.status =='active'" class="tab-item">
+          <i class="icon ion-android-more-horizontal positive"></i> Request pending
+        </a>
+        <a ng-if="permission.status =='onGoing' && survey.status =='active'" class="tab-item">
+          <i class="icon ion-checkmark-round positive"></i> Ready to submit
+        </a>
+        <a ng-if="permission.status == 'onGoing' && survey.status =='active'" class="tab-item" href="#/tab/survey-detail2/{{survey.id}}">
+          <i class="icon ion-edit positive"></i> Submit new response
+        </a>
+        <a ng-if="survey.status =='completed'" class="tab-item" href="">
+          <i class="icon ion-checkmark-round positive"></i> This survey has ended
+        </a>
+        <a ng-if="responses && responses.length > 0" class="tab-item" href="#/tab/responses2/{{survey.id}}">
+          <i class="icon ion-document-text positive"></i> View your responses
+        </a>
+
+
+      </div>
+
+      <div class="card">
+
+        <div class="item item-text-wrap">
+          {{survey.description}}
+          <br>Deadline: {{getDeadline(survey.deadline)}}. After the deadline, you cannot submit no more responses.
+          <br>You are allowed to submit up to {{survey.submissionPerPerson}} responses
+          <br>          <i class="icon ion-ios-location"></i>  Ho Chi Minh city
+        </div>
+<!--         <div class="item item-text-wrap">
+          Deadline: {{getDeadline(survey.deadline)}}. After the deadline, you cannot submit no more responses.
+        </div>
+        <div class ="item item-text-wrap">
+        </div>
+ -->      </div>
+
+      <div  class="list">
+        <h4 class="content padding double-padding-x">Comments</h4>
+        <div class="item item-avatar" style="border-width:0px;">
+          <img src="{{getImageUrl(myInfo.avatar)}}">
+          <input ng-enter="postComment()" ng-model="data.comment" type="text" placeholder="Add a public comment..." style="border-bottom:1px solid black;">
+        </div>
+        <a  ng-repeat ="comment in comments" class="item item-avatar">
+          <img ng-src="{{comment.avatar}}">
+          <h2>{{comment.commenterName}}</h2>
+          <p>{{comment.description}}</p>
+        </a>
+      </div>
+    </ion-content>
+<!--  <ion-footer-bar align-title="left" keyboard-attach class="bar-assertive">
+   <h1 class="title">Title!</h1>
+ </ion-footer-bar>
+--></ion-view>

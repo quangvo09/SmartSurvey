@@ -1,0 +1,14 @@
+/* Empty. Add your own CSS if you like */
+.ionic_ratings .read_only {
+    pointer-events:none !important;
+  }
+.popup-container .popup{
+	width:350px;
+	background-color: white;
+};
+a.positive-color{
+	color:##387ef5;
+}
+.item-content{
+	white-space:normal;
+}

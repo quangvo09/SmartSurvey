@@ -1,0 +1,14 @@
+
+<ion-view view-title="My Surveys">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-icon-left" ng-repeat="survey in surveys" type="item-text-wrap" href="#/tab/surveyInfo/{{survey.id}}">
+        <i class="icon ion-clipboard positive"></i>
+        <h2><strong>{{survey.name}}</strong></h2>
+        <p>Submissions per person: {{survey.submissionPerPerson}}</p>
+        <p>Deadline: {{getDeadline(survey.deadline)}}</p>
+        <p>Status: {{survey.status}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
